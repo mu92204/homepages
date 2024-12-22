@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>캐릭터
+
+  </title>
+  <style>
+    /* 전체 요소 초기화 */
+    body {
+  background-image: url('https://i.imgur.com/wCN2Of7.png'); /* 배경 이미지 경로 */
+  background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+  background-repeat: no-repeat; /* 이미지 반복 제거 */
+  background-position: center; 
+}
+    .wrap {
+      width: 1200px;
+      margin: 20px auto;
+    }
+    .mytitle {
+  text-align: center; /* 가운데 정렬 */
+  margin: 20px; /* 여백 추가 */
+}
+
+    .yellow_outline_btn {
+      background-color: white;
+      width: 80vw;
+      height: 1vh;
+    }
+/* 전체 요소 초기화 */
+       * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+
+    /* 버튼 컨테이너 */
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .button-container {
+    z-index: 1000;
+    position: relative;
+}
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    /* 버튼 색상 */
+    .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-outline-secondary {
+      background-color: #6d767d;
+      color: white;
+    }
+
+    .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+  /* 이미지 컨테이너 래퍼 스타일 수정 */
+/* 화면이 최대화 상태일 때 좌우 위치 바꾸기 */
+@media (min-width: 1600px) {
+  .image-container-wrapper {
+    display: flex; /* 가로 정렬 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 130%;
+    gap: 50px; /* 이미지 간 간격 설정 */
+    margin-top: 250px; /* 전체 위 여백 */
+  }
+
+/* 이미지 컨테이너 래퍼 스타일 */
+
+/* 이미지 스타일 */
+}
+.vertical-button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      z-index: 5;
+    }
+
+    .image-container-top {
+      width: 20%;
+  position: absolute; /* 위치를 절대값으로 설정 */
+  top: 600px; /* 페이지 상단에서 떨어진 거리 */
+  left: 30%; /* 화면 중앙에 배치 */
+  transform: translateX(-50%); /* 수평 중앙 정렬 */
+  z-index: 100; /* 다른 요소 위에 표시 */
+}
+
+.image-container-top img {
+  width: 120%; /* 이미지 확대 (100%가 기본 크기) */
+  height: auto; /* 비율 유지 */
+  object-fit: cover; /* 이미지 채우기 방식 */
+  border-radius: 10px; /* 필요 시 둥근 모서리 설정 */
+}
+
+    .vertical-button-group button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      margin-bottom: 10px;
+    }
+    
+    .vertical-button-group .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-secondary {
+      background-color: #6d767d;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    .button-container .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .button-containerup .btn-outline-secondary {
+      background-color: #6d767d;
+      color: white;
+    }
+
+    .button-container .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .vertical-button-group {
+    z-index: 1000; /* 높은 값을 지정 */
+}
+.vertical-button-group {
+    position: relative; /* 필요에 따라 absolute로 변경 */
+}
+.image-text-container {
+  display: flex; /* Flexbox 활성화 */
+  align-items: top; /* 세로축 중앙 정렬 */
+  gap: 220px; /* 이미지와 텍스트 사이 간격 */
+  margin: 20px; /* 외부 여백 */
+}
+
+.image-text-container img {
+  width: 800px; /* 이미지 너비를 더 크게 설정 */
+  height: auto; /* 비율 유지 */
+  border-radius: 10px; /* 이미지 모서리 둥글게 */
+  margin-left: 24px;
+}
+
+.text-content {
+  max-width: 600px; /* 텍스트 최대 너비 */
+}
+
+.text-content h2 {
+  margin-bottom: 10px; /* 제목과 본문 간격 */
+}
+
+.text-content p {
+  line-height: 1.5; /* 텍스트 줄 간격 */
+}
+.text-content p {
+    line-height: 1.8; /* 줄 간격 */
+    margin-bottom: 15px; /* 단락 간 간격 */
+  }
+  </style>
+</head>
+<body>
+  <div class="mytitle">
+    <a href="file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/hello.html" target="_blank">
+      <img src="https://i.imgur.com/4xmbi3A.png" title="source: imgur.com" />
+    </a>
+  </div>
+  <div style="position: relative; z-index: 1000; margin-top: 20px;">
+    <p>이메일: <input type="text" id="email" /></p>
+    <p>패스워드: <input type="text" id="password" /></p>
+    <button onClick="handleLogin()">로그인하기</button>
+    <button onClick="handleRegister()">등록</button>
+  </div>
+
+
+    <!-- 버튼 컨테이너 -->
+    <div class="button-container">
+      <button type="button" class="btn-outline-primary" 
+              onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game.html'">게임소개</button>
+      <button type="button" class="btn-outline-secondary" 
+              onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/announcement.html'">공지사항</button>
+      <button type="button" class="btn-outline-danger" 
+              onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/communication.html'">커뮤니티</button>
+    </div>
+    
+    <!-- 이미지 컨테이너 -->
+    <div class="image-text-container">
+      <img src="https://i.imgur.com/7EJ8fvB.png" title="source: imgur.com" /></a>
+      <div class="text-content">
+        <h2>이름: 공룡이</h2>
+        <p>특징</p>
+        <p>직선상의 불을 발사하는 능력을 가진 이세계 짐승</p>
+        <p>적을 잡아먹으면 불이 방사상으로 범위가 확대됨</p>
+        <p>지원사유</p>
+        <p>-자고 일어나니 새끼용이 잠자고 있었다고 함</p>
+        <p>해당 새끼용은 인간에게 굉장히 순종적이었으며</p>
+        <p>쉘터내에서 기르면서 자세한 연구를 진행하기로 함</p>
+        <p>내용.</p>
+        <p>실험기록1.짐승에게서 혈액을 뽑으려는 시도가 있었으나 대상의 방해에 의해 무산됨</p>
+        <p>실험기록2.가끔씩 쉘터밖으로 나가려는 시도가 있었으나 무산됨</p>
+        <p>기록1.-르탄이들의 훈련중에 난입, 주변의 로복들을 가차없이 처치하고 잡아먹음</p>
+        <p>어쩌면 잘만 구슬리면 인간의 생존에 도움이 되지 않을까싶음</p>
+        <p>기록2-길들이기 시험결과 육식및 채식을 일절하지 않으며 오히려 기계를 포식하는 능력이 있었음</p>
+        <p>기록3-기계포식결과 내뿜는 불의 힘과 범위가 증가함</p>
+        <p>결론-충분히 실전성이 있으나 출처가 불분명한 지금 작전에 투입시키기는 어려울것으로 보임</p>
+        <p>1월 중순쯤까지는 관찰할 필요가 있어보임</p>
+
+      </div>
+</body>
+</html>

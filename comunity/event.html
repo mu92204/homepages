@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트</title>
+  <style>
+         body {
+  background-image: url('https://i.imgur.com/wCN2Of7.png'); /* 배경 이미지 경로 */
+  background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+  background-repeat: no-repeat; /* 이미지 반복 제거 */
+  background-position: center; 
+}
+    .mytitle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      margin-top: 0;
+    }
+
+    .mytitle img {
+      width: 90%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .mytitle img:hover {
+      transform: scale(1.05);
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+      padding: 10px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: -720px;
+      left: 60px;
+    }
+
+    .pagination a {
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .pagination a.active {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .login {
+      margin-bottom: 30px;
+    }
+
+    .login form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .custom-button {
+  display: inline-block; /* 버튼을 인라인 블록 요소로 설정 */
+  width: 650%; /* 버튼 가로 범위를 부모 요소의 50%로 설정 */
+  max-width: 1000px; /* 버튼 최대 너비를 설정 */
+  text-align: center; /* 버튼 텍스트 중앙 정렬 */
+  margin-bottom: 10px; /* 버튼 하단 여백 */
+  margin-right: 900px;
+  padding: 15px; /* 버튼 내부 여백 */
+  font-size: 16px; /* 버튼 글자 크기 */
+  border: 1px solid #ddd; /* 버튼 테두리 */
+  border-radius: 4px; /* 버튼 모서리 둥글게 */
+  background-color: #fff; /* 버튼 배경색 */
+  cursor: pointer; /* 커서 스타일 */
+  transition: background-color 0.3s; /* 배경색 전환 효과 */
+}
+
+.custom-button:hover {
+  background-color: #f5f5f5; /* 호버 시 배경색 변경 */
+}
+.button-group {
+            display: flex;
+            flex-direction: row; /* 세로 방향 정렬 */
+            align-items: center; /* 중앙 정렬 */
+            margin-top: 20px; /* 기본 간격 */
+        }
+.vertical-button-group {
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+  position: absolute; /* 절대 위치 지정 */
+  top: 400px; /* 화면 상단에서 떨어진 거리 */
+  left: 20px; /* 화면 왼쪽에서 떨어진 거리 */
+  z-index: 5; /* 다른 요소 위에 표시 */
+}
+
+.vertical-button-group button {
+  display: block;
+  padding: 10px 20px; /* 버튼 내부 여백 */
+  font-size: 16px; /* 글자 크기 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  cursor: pointer;
+  border: none;
+  margin-bottom: 10px; /* 버튼 간격 */
+}
+
+.vertical-button-group .btn-outline-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.vertical-button-group .btn-outline-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.vertical-button-group .btn-outline-danger {
+  background-color: #dc3545;
+  color: white;
+}
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: top;
+      justify-content: top;
+      min-height: 80vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="mytitle">
+    <a href="file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/hello.html"><img src="https://i.imgur.com/4xmbi3A.png" /></a>
+  </div>
+  <div class="button-group">
+    <button type="button" class="btn btn-outline-primary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game.html'">게임소개</button>
+    <button type="button" class="btn btn-outline-secondary"
+        onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/announcement.html'">공지사항</button>
+        <button type="button" class="btn btn-outline-secondary"
+        onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/communication.html'">커뮤니티</button>
+</div>
+  <div class="main-container">
+    <div class="login">
+      <form>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
+        <label for="pw">PW:</label>
+        <input type="password" id="pw" name="pw">
+        <button type="button">로그인하기</button>
+        <button type="button">등록</button>
+      </form>
+    </div>
+    <div id="content"></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+  <div class="vertical-button-group">
+    <button type="button" class="btn btn-outline-primary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/screenshot%20copy%202.html'">스크린샷</button>
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/event.html'">이벤트</button>
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/screenshot%20copy%202.html'">팬아트게시판</button>
+  </div>
+  <script>
+    const documents = [
+      { text: "시청자아이디어 게시판", link: "idea.html" },
+      { text: "로봇킬내기!", link: "engineers-cup.html" },
+      { text: "콜라보할까요?", link: "event-collabo.html" },
+    ];
+
+    const itemsPerPage = 7;
+    let currentPage = 1;
+
+    function displayDocuments(page) {
+      const contentDiv = document.getElementById("content");
+      const startIndex = (page - 1) * itemsPerPage;
+      const currentItems = documents.slice(startIndex, startIndex + itemsPerPage);
+
+      contentDiv.innerHTML = currentItems.map(doc => 
+        `<button class="custom-button" onclick="location.href='${doc.link}'">${doc.text}</button>`).join("");
+    }
+
+    function displayPagination() {
+      const paginationDiv = document.getElementById("pagination");
+      const totalPages = Math.ceil(documents.length / itemsPerPage);
+      paginationDiv.innerHTML = Array.from({ length: totalPages }, (_, i) => 
+        `<a href="#" class="${i + 1 === currentPage ? 'active' : ''}" data-page="${i + 1}">${i + 1}</a>`).join("");
+
+      document.querySelectorAll(".pagination a").forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          currentPage = parseInt(link.getAttribute("data-page"));
+          updatePage();
+        });
+      });
+    }
+
+    function updatePage() {
+      displayDocuments(currentPage);
+      displayPagination();
+    }
+
+    document.addEventListener("DOMContentLoaded", updatePage);
+  </script>
+</body>
+</html>

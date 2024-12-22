@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>아이디어</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+            body {
+  background-image: url('https://i.imgur.com/wCN2Of7.png'); /* 배경 이미지 경로 */
+  background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+  background-repeat: no-repeat; /* 이미지 반복 제거 */
+  background-position: center; 
+}
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        .mytitle {
+            background-color: rgb(255, 255, 255);
+            color: white;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            width: 50px;
+            margin-left: 1260px;
+        }
+z
+        .mycards {
+            width: 90%; /* 카드 박스의 가로 길이 */
+            margin: 0 auto; /* 중앙 정렬 */
+        }
+        .card-body {
+    margin-top: 20px; /* 텍스트를 아래로 이동 */
+}
+        .mytitle > button {
+            width: 150px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 1px solid white;
+            margin-top: 20px;
+        }
+
+        .mypostbox {
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 위에서 아래로 정렬 */
+    align-items:center; /* 우측 정렬 */
+    background-color: #f9f9f9;
+}
+
+.form-floating {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: right; /* 라벨과 텍스트를 오른쪽으로 정렬 */
+}
+
+#image,
+#title,
+#date,
+#content {
+    text-align: left; /* 입력값은 여전히 좌측 정렬 */
+    margin-right: 0; /* 오른쪽 마진을 없앰 */
+}
+
+#content {
+    height: 150px; /* 높이 조정 */
+    resize: vertical; /* 높이는 조절 가능 */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.form-control {
+    width: 200%; /* 입력 필드 전체 너비 */
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* 패딩 포함 너비 계산 */
+}
+
+textarea#content {
+    width: 200%;
+    height: 100px; /* 적절한 높이로 설정 */
+    resize: vertical; /* 사용자가 세로 크기만 조절 가능 */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left; /* 텍스트 좌측 정렬 */
+}
+
+        .button-group {
+            display: flex;
+            flex-direction: row; /* 세로 방향 정렬 */
+            align-items: center; /* 중앙 정렬 */
+            margin-top: 20px; /* 기본 간격 */
+        }
+    .vertical-button-group {
+        display: flex;
+        flex-direction: column; /* 세로 방향 정렬 */
+        gap: 10px; /* 버튼 간격 추가 */
+        margin-top: 20px;
+        align-items: center;
+    }
+    .form-floating {
+    width: 90%; /* 입력 필드의 가로 길이 */
+    max-width: 600px; /* 최대 가로 길이 */
+    margin-bottom: 15px; /* 필드 간 간격 */
+    text-align: left; /* 레이블 텍스트 좌측 정렬 */
+}
+.login {
+    margin-top: 150px; /* 로그인 영역 아래로 여백 */
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center;
+}
+
+.login .d-flex {
+    gap: 10px; /* 입력 필드와 버튼 사이 간격 */
+}
+
+.login input {
+    max-width: 300px; /* 입력 필드의 가로 길이 제한 */
+    height: 30px; /* 입력 필드의 높이 */
+    font-size: 12px; /* 글자 크기 */
+    padding: 5px; /* 입력 필드 내부 여백 */
+}
+
+.login button {
+  width: 120px; /* 버튼 너비 */
+  height: 30px; /* 버튼 높이 */
+  background-size: cover; /* 배경 크기를 맞춤 */
+  background-repeat: no-repeat; /* 배경 반복 제거 */
+  border: none; /* 버튼 테두리 제거 */
+  cursor: pointer; /* 커서 포인터 추가 */
+}
+
+.login .btn-primary {
+  background-image: url('path/to/login-button.png'); /* 로그인 버튼 이미지 */
+}
+
+.login .btn-secondary {
+  background-image: url('path/to/register-button.png'); /* 등록 버튼 이미지 */
+}
+        .mybtn {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* 버튼 사이 간격 */
+        }
+ 
+        .button-group:first-of-type {
+            margin-top: 50px; /* 위의 버튼 그룹을 아래로 이동 */
+        }
+        .vertical-button-group {
+      display: flex;
+      flex-direction: column; /* 세로 정렬 */
+      align-items: flex-start; /* 왼쪽 정렬 */
+      position: absolute; /* 절대 위치 지정 */
+      top: 550px; /* 상단에서 떨어진 거리 */
+      left: 20px; /* 화면 왼쪽에서 떨어진 거리 */
+      z-index: 5; /* 다른 요소 위에 표시 */
+    }
+
+    .vertical-button-group button {
+      padding: 10px 20px; /* 버튼 내부 여백 */
+      font-size: 16px; /* 글자 크기 */
+      border-radius: 5px; /* 모서리 둥글게 */
+      cursor: pointer;
+      border: none;
+      margin-bottom: 10px; /* 버튼 간격 */
+    }
+
+    .vertical-button-group .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    </style>
+</head>
+<body>
+ 
+  </div>
+  
+  <!-- 버튼 그룹을 그림 아래로 이동 -->
+
+  <div class="mytitle">
+    <a href="file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/screenshot%20copy%202.html"
+        target="_blank">
+      <img src="https://i.imgur.com/4xmbi3A.png" title="source: imgur.com" /></a>
+    </a>
+  </div>
+  <div class="login">
+    <div class="d-flex align-items-center gap-2">
+        <p class="mb-0">ID:</p>
+        <input type="text" class="form-control" style="max-width: 150px; height: 30px; font-size: 12px;">
+        <p class="mb-0">PW:</p>
+        <input type="text" class="form-control" style="max-width: 150px; height: 30px; font-size: 12px;">
+        <button class="btn btn-primary btn-sm d-flex justify-content-center align-items-center"
+            style="width: 120px;">로그인하기</button>
+        <button class="btn btn-secondary btn-sm d-flex justify-content-center align-items-center"
+            style="width: 120px;" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/.vs/public/index.html'">등록</button>
+    </div>
+</div>
+
+      <div class="button-group">
+          <button type="button" class="btn btn-outline-primary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/.vs/public/game.html'">게임소개</button>
+          <button type="button" class="btn btn-outline-secondary"
+              onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/.vs/public/announcement.html'">공지사항</button>
+      </div>
+  </form>
+</div>
+<div class="vertical-button-group">
+  <button type="button" class="btn btn-outline-primary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/screenshot%20copy%202.html'">스크린샷</button>
+  <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/event.html'">이벤트</button>
+  <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/painting.html'">팬아트게시판</button>
+</div>
+<div class="mypostbox">
+  <form>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="image" placeholder="이미지 URL">
+      <label for="image">앨범 이미지 URL</label>
+    </div>
+    
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="title" placeholder="앨범 제목">
+      <label for="title">앨범 제목</label>
+    </div>
+    
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="date" placeholder="앨범 날짜">
+      <label for="date">앨범 날짜</label>
+    </div>
+    
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="앨범 내용" id="content"></textarea>
+      <label for="content">앨범 내용</label>
+    </div>
+    <div class="mybtn">
+      <button type="button" class="btn btn-dark" onclick="makeCard()">기록하기</button>
+      <button type="reset" class="btn btn-outline-dark">닫기</button>
+    </div>
+  </form>
+</div>
+<div class="mycards">
+  <div id="card-container" class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col">
+          <div class="card h-100">
+            <img src="https://i.imgur.com/CqZaG5F.jpg" title="source: imgur.com" /></a>
+              <div class="card-body">
+                  <h5 class="card-title">공격하면 범위피해를 입히는 핵타워</h5>
+                  <p class="card-text">폭발은 예술이다!!</p>
+              </div>
+              <div class="card-footer">
+                  <small class="text-muted">2024.12.12</small>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+          <div class="card h-100">
+            <img src="https://i.imgur.com/YKGo2Aj.png" title="source: imgur.com" /></a>
+              <div class="card-body">
+                  <h5 class="card-title">버그를 끌어당기는 미끼타워</h5>
+                  <p class="card-text">숯불돼지갈비는~명륜진사갈비</p>
+              </div>
+              <div class="card-footer">
+                  <small class="text-muted">2024.12.12</small>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</body>
+<script>
+function makeCard() {
+    const image = document.getElementById('image').value.trim();
+    const title = document.getElementById('title').value.trim();
+    const date = document.getElementById('date').value.trim();
+    const content = document.getElementById('content').value.trim();
+
+    if (!image || !title || !date || !content) {
+        alert("모든 필드를 입력하세요!");
+        return;
+    }
+
+    const newCard = { image, title, date, content };
+    const cards = getCardsFromLocalStorage();
+    cards.push(newCard);
+    saveCardsToLocalStorage(cards);
+
+    // 화면에 카드 렌더링
+    renderCards();
+
+    // 입력 필드 초기화
+    document.getElementById('image').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('content').value = '';
+}
+// 카드 컨테이너 찾기
+const cardContainer = document.getElementById('card-container');
+const newCard = `
+  <div class="col">
+      <div class="card h-100">
+          <img src="${image}" class="card-img-top" alt="이미지">
+          <div class="card-body">
+              <h5 class="card-title">${title}</h5>
+              <p class="card-text">${content}</p>
+          </div>
+          <div class="card-footer">
+              <small class="text-muted">${date}</small>
+          </div>
+      </div>
+  </div>
+`;
+
+// 카드 추가
+cardContainer.insertAdjacentHTML('beforeend', newCard);
+
+function saveCardsToLocalStorage(cards) {
+    localStorage.setItem('cards', JSON.stringify(cards));
+}
+
+function getCardsFromLocalStorage() {
+    const savedCards = localStorage.getItem('cards');
+    return savedCards ? JSON.parse(savedCards) : [];
+}
+function renderCards() {
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = ''; // 기존 내용을 초기화
+
+    const cards = getCardsFromLocalStorage();
+    cards.forEach(card => {
+        const cardHTML = `
+            <div class="col">
+                <div class="card h-100">
+                    <img src="${card.image}" class="card-img-top" alt="이미지">
+                    <div class="card-body">
+                        <h5 class="card-title">${card.title}</h5>
+                        <p class="card-text">${card.content}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">${card.date}</small>
+                    </div>
+                </div>
+            </div>
+        `;
+        cardContainer.insertAdjacentHTML('beforeend', cardHTML);
+    });
+}
+</script>
+
+</html>
