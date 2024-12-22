@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디 등록</title>
+</head>
+<body>
+  <div class="container text-center mt-5">
+    <h2>아이디 등록</h2>
+  </div>
+  <div id="save_form" class="container">
+    <p><label for="nickname">닉네임</label></p>
+    <input type="text" id="nickname" name="nickname" class="form-control" />
+
+    <p><label for="email">이메일</label></p>
+    <input type="text" id="email" name="email" class="form-control" />
+
+    <p><label for="password">비밀번호</label></p>
+    <input type="password" id="password" name="password" class="form-control" />
+
+    <p><label for="password_confirm">비밀번호 재확인</label></p>
+    <input type="password" id="password_confirm" name="password_confirm" class="form-control" />
+
+    <button type="button" class="navyBtn" onclick="registerUser()">등록</button>
+  </div>
+
+  <script>
+    async function registerUser() {
+      const nickname = document.getElementById('nickname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const passwordConfirm = document.getElementById('password_confirm').value.trim();
+
+      // 입력값 확인
+      if (!nickname || !email || !password || !passwordConfirm) {
+        alert('모든 필드를 입력하세요!');
+        return;
+      }
+
+      if (password !== passwordConfirm) {
+        alert('비밀번호가 일치하지 않습니다!');
+        return;
+      }
+
+      // 서버로 데이터 전송
+      try {
+        const response = await fetch('http://localhost:3000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ nickname, email, password }),
+        });
+
+        if (response.ok) {
+          alert('회원가입 성공!');
+        } else {
+          const error = await response.text();
+          alert(`회원가입 실패: ${error}`);
+        }
+      } catch (err) {
+        console.error(err);
+        alert('서버와 통신 중 오류 발생');
+      }
+    }
+  </script>
+</body>
+</html>

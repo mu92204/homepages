@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게임 소개</title>
+  <style>
+/* mytitle 스타일 중앙 정렬 및 크기 조정 */
+body {
+  background-image: url('https://i.imgur.com/wCN2Of7.png'); /* 배경 이미지 경로 */
+  background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+  background-repeat: no-repeat; /* 이미지 반복 제거 */
+  background-position: center; 
+}
+.mytitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-top: 0;
+  padding: 0; /* 내부 여백 제거 */
+  width: 100%; /* 컨테이너 너비를 화면 전체로 설정 */
+  box-sizing: border-box; /* 패딩과 테두리를 포함한 전체 크기 계산 */
+}
+
+.mytitle img {
+  width: 100%; /* 크기 증가 */
+  height: auto;
+  border-radius: 8px;
+}
+
+.mytitle img:hover {
+  transform: scale(1.1); /* 호버 시 크기 확대 */
+  transition: transform 0.3s; /* 부드러운 애니메이션 */
+}
+
+  /* 상단 이미지 컨테이너 스타일 */
+  .top-image-container {
+    display: flex; /* Flexbox 활성화 */
+    justify-content: center; /* 가로축 중앙 정렬 */
+    align-items: center; /* 세로축 중앙 정렬 */
+    margin-top: 20px; /* 상단 여백 */
+    height: auto; /* 컨테이너 높이 자동 설정 */
+  }
+
+  /* 상단 이미지 스타일 */
+  .top-image-container img {
+    width: 80%; /* 기본 이미지 너비 */
+    max-width: 1200px; /* 이미지의 최대 너비 */
+    min-width: 300px; /* 이미지의 최소 너비 */
+    height: auto; /* 비율 유지 */
+    border-radius: 8px; /* 이미지 테두리 둥글게 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    transition: transform 0.3s ease, width 0.3s ease; /* 크기 변경 애니메이션 */
+  }
+    /* 버튼 그룹 중앙 정렬 */
+    .centered-button-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      position: absolute;
+      top: 600px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      gap: 15px;
+    }
+
+    .centered-button-group button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      width: 200px;
+      text-align: center;
+    }
+
+    .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-outline-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .centered-button-group button:hover {
+      opacity: 0.9;
+    }
+    .centered-button-group {
+      display: flex; /* Flexbox 활성화 */
+      justify-content: center; /* 가로축 중앙 정렬 */
+      align-items: center; /* 세로축 중앙 정렬 */
+      flex-direction: row; /* 버튼 세로 정렬 */
+      position: absolute; /* 절대 위치로 배치 */
+      top: 350px; /* 상단에서 떨어진 거리 */
+      left: 50%; /* 가로 중앙 */
+      transform: translateX(-50%); /* X축 중앙 정렬 */
+      z-index: 10; /* 다른 요소 위에 위치 */
+      gap: 15px; /* 버튼 간격 */
+    }
+
+    .centered-button-group button {
+      padding: 10px 20px; /* 버튼 내부 여백 */
+      font-size: 16px; /* 글자 크기 */
+      border-radius: 5px; /* 모서리 둥글게 */
+      cursor: pointer; /* 클릭 시 커서 변경 */
+      border: none; /* 테두리 제거 */
+      width: 200px; /* 버튼 너비 설정 */
+      text-align: center; /* 텍스트 중앙 정렬 */
+    }
+
+    .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-outline-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .centered-button-group button:hover {
+      opacity: 1; /* 호버 효과 */
+    }
+   /* 공통 이미지 컨테이너 스타일 */
+   .advertisement-container {
+    display: flex; /* Flexbox로 이미지 나란히 정렬 */
+    flex-wrap: wrap; /* 줄 바꿈 가능 */
+    gap: 15px; /* 이미지 간격 */
+    justify-content: flex-start; /* 좌측 정렬 */
+    align-items: center; /* 세로축 정렬 */
+    margin: 20px; /* 컨테이너 상하좌우 여백 */
+  }
+
+  /* 광고 이미지 스타일 */
+  .advertisement-container .ad-image {
+    width: 150px; /* 이미지 너비 */
+    height: auto; /* 이미지 비율 유지 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    transition: transform 0.3s ease; /* 크기 변화 애니메이션 */
+    cursor: pointer; /* 클릭 가능한 효과 */
+  }
+
+  /* 텍스트 컨테이너 */
+  .text-container {
+    clear: both; /* float으로 인해 깨질 수 있는 요소 정리 */
+    margin-top: 20px; /* 텍스트 상단 여백 */
+    padding: 20px; /* 텍스트와 콘텐츠 여백 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
+
+  /* 숨겨진 텍스트 */
+  .hidden-text {
+    display: none; /* 초기 숨김 상태 */
+    margin-top: 20px; /* 숨겨진 텍스트 상단 간격 */
+  }
+
+  /* 클릭 가능한 텍스트 */
+  .clickable {
+    color: blue; /* 텍스트 색상 */
+    cursor: pointer; /* 클릭 시 포인터 표시 */
+    text-decoration: underline; /* 밑줄 */
+  }
+    /* 세로 정렬 버튼 그룹 (왼쪽 세로 버튼) */
+    .vertical-button-group {
+      display: flex;
+      flex-direction: column; /* 세로 정렬 */
+      align-items: flex-start; /* 왼쪽 정렬 */
+      position: absolute; /* 절대 위치 지정 */
+      top: 500px; /* 상단에서 떨어진 거리 */
+      left: 20px; /* 화면 왼쪽에서 떨어진 거리 */
+      z-index: 5; /* 다른 요소 위에 표시 */
+    }
+
+    .vertical-button-group button {
+      padding: 10px 20px; /* 버튼 내부 여백 */
+      font-size: 16px; /* 글자 크기 */
+      border-radius: 5px; /* 모서리 둥글게 */
+      cursor: pointer;
+      border: none;
+      margin-bottom: 10px; /* 버튼 간격 */
+    }
+
+    .vertical-button-group .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .vertical-button-group button:hover {
+      opacity: 0.9; /* 호버 효과 */
+    }
+
+
+    .right-image-container {
+  position: absolute; /* 절대 위치 설정 */
+  top: 800px; /* 다른 요소와 겹치지 않도록 위치 유지 */
+  left: 0; /* 좌측에 고정 */
+  transform: none; /* X축 중앙 정렬 해제 */
+  z-index: 5; /* 다른 요소 위에 표시 */
+  text-align: left; /* 이미지 왼쪽 정렬 */
+}
+
+.right-image-container img {
+  width: 300px; /* 기본 이미지 크기 */
+  height: auto; /* 비율 유지 */
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+  opacity: 0.9;
+  transition: all 0.3s ease; /* 부드러운 애니메이션 효과 */
+}
+
+.right-image-container img:hover {
+  transform: scale(1.05);
+  opacity: 1; /* 호버 시 투명도 조정 */
+}
+
+@media (max-width: 1200px) {
+  .right-image-container img {
+    width: 250px; /* 화면이 작아지면 이미지 너비 축소 */
+  }
+}
+
+@media (max-width: 768px) {
+  .right-image-container {
+    position: relative; /* 작은 화면에서는 위치 상대적 설정 */
+    top: auto; /* 자동 조정 */
+    left: 20px;
+    transform: none; /* 중앙 정렬 해제 */
+    text-align: center; /* 이미지 중앙 정렬 */
+  }
+
+  .right-image-container img {
+    width: 200px; /* 더 작은 화면에서는 이미지 너비 줄임 */
+  }
+}
+
+@media (max-width: 480px) {
+  .right-image-container img {
+    width: 150px; /* 모바일 화면에서는 이미지 더 작게 */
+  }
+}
+
+    /* 이미지와 텍스트 유지 */
+    .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px; /* 상단 여백을 50px로 줄임 */
+}
+
+    .image-container img {
+      width: 1000px; /* 이미지 크기 */
+      height: 200px; /* 비율 유지 */
+      border-radius: 8px; /* 테두리 둥글게 */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    }
+
+    .text-container {
+      text-align: center; /* 텍스트 중앙 정렬 */
+      margin-top: 20px;
+    }
+
+    .hidden-text {
+      display: none; /* 초기에는 숨김 */
+      margin-top: 20px;
+    }
+
+    .clickable {
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .text-container {
+    clear: both; /* 이미지와 겹치지 않도록 정리 */
+    margin-top: -40px; /* 텍스트 상단 간격 */
+    padding: 20px; /* 텍스트와 내부 여백 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    transition: none; /* 부드러운 애니메이션 효과 제거 */
+}
+
+  /* 숨겨진 텍스트 */
+  .hidden-text {
+    display: none; /* 초기 숨김 상태 */
+    margin-top: 20px; /* 숨겨진 텍스트 상단 간격 */
+  }
+
+  /* 클릭 가능한 텍스트 */
+  .clickable {
+    color: blue; /* 텍스트 색상 */
+    cursor: pointer; /* 클릭 시 포인터 표시 */
+    text-decoration: underline; /* 밑줄 */
+  }
+  .iwantyou {
+    position: absolute; /* 절대 위치 설정 */
+    top: 50px; /* 화면 상단에서의 거리 */
+    left: 50px; /* 화면 왼쪽에서의 거리 */
+    z-index: 10; /* 다른 요소 위로 올리기 */
+    pointer-events: none; /* 다른 요소와의 클릭 이벤트 방지 (필요시 제거 가능) */
+}
+
+.iwantyou img {
+    width: 200px; /* 이미지 크기 조정 */
+    height: auto; /* 비율 유지 */
+    opacity: 0.9; /* 반투명 효과 (필요시 제거 가능) */
+    transition: all 0.3s ease-in-out; /* 부드러운 이동 및 크기 전환 */
+}
+
+.iwantyou:hover img {
+    transform: scale(1.1); /* 마우스 호버 시 크기 확대 */
+    opacity: 1; /* 호버 시 투명도 복원 */
+}
+.video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+    }
+
+    .video-container iframe {
+      width: 640px;
+      height: 360px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 상단 배경 이미지 -->
+  <div class="wrap">
+    <!-- 상단 타이틀 -->
+    <div class="mytitle">
+      <a href="file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/hello.html" target="_blank">
+      <img src="https://i.imgur.com/4xmbi3A.png" title="source: imgur.com" /></a>
+      </a>
+    </div>
+    <div>
+    <!-- 로그인 및 등록 버튼 -->
+    <p>ID: <input type="text" /></p>
+    <p>PW: <input type="text" /></p>
+    <button>로그인하기</button>
+    <button onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/.vs/public/index.html'">등록</button>
+</div>
+
+  <!-- 중앙에 위치한 버튼 그룹 -->
+  <div class="centered-button-group">
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/announcement.html'">공지사항</button>
+    <button type="button" class="btn btn-outline-danger" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/communication.html'">커뮤니티</button>
+  </div>
+
+  <!-- 세로 정렬된 버튼 그룹 -->
+  <div class="vertical-button-group">
+    <button type="button" class="btn btn-outline-primary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/character.html'">캐릭터 소개</button>
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/tower.html'">타워 소개</button>
+    <button type="button" class="btn btn-outline-danger" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/skillcard.html'">스킬카드 소개</button>
+    <button type="button" class="btn btn-outline-danger" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/robot.html'">로봇 소개</button>
+  </div>
+
+  <!-- 이미지 -->
+  <div class="image-container" id="image-container">
+    <img src="https://i.imgur.com/lbcnBCC.png" title="source: imgur.com" /></a>
+  </div>
+
+ <!-- 이미지와 텍스트 영역 -->
+ <div class="right-image-container">
+  <img src="https://i.imgur.com/3VvDAq0.png" title="source: imgur.com" /></a>
+</div>
+
+<!-- 텍스트 컨테이너 -->
+<div class="text-container">
+  <h4>프롤로그</h4>
+  <p>인류의 편의성을 증진시키기 위해 만들어진 인공지능의 반란이 일어난지 9년…</p>
+  <p>쉴 틈 없이 몰려오는 인공지능의 물량에 지쳐버린 인류는 점점 밀려나게 되어버리고 어느덧 인류가 </p>
+  <p>살아갈 장소 마저 지하 셸터로 한정되어 졌다.</p>
+  <p>인류는 마지막 반격을 위해 기나긴 희생으로 쌓여진 전투 데이터를 기반으로 현실과 완벽할 정도의 </p>
+  <p>시뮬레이터를 만들게 되었고, 이 것을 토대로 영웅 육성을 위한 Project9을 실행한다.</p>
+  <p>하지만 너무 완벽해서 압도적인 인공지능의 물량 공포마저 구현된 시뮬레이터에 버티는 자가 없어</p>
+  <p>희망이 사그라지는 그 순간!</p>
+  <p>4명의 용감한 르탄이들이 지원을 하였고, 그들은 시뮬레이터를 통해 영웅으로서 성장을 하려고 한다!</p>
+  </div>
+</div>
+<div class="video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/tYDolKPPPug?si=lI7mk7hvIAi0y_-2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<script>
+   function preventDuplicateImage() {
+      const container = document.getElementById("image-container");
+      if (container && container.children.length > 0) {
+        console.warn("이미지가 이미 추가되어 중복 생성을 방지했습니다.");
+        return; // 중복 방지
+      }
+
+      // 이미지 추가 로직 (필요한 경우만)
+      const img = document.createElement("img");
+      img.src = "file:///C:/Users/PC/Downloads/asdadasdaf.png";
+      img.alt = "게임 소개";
+      container.appendChild(img);
+    }
+
+</script>
+
+</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판</title>
+  <style>
+/* mytitle 스타일 중앙 정렬 및 크기 조정 */
+.mytitle {
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  height: 250px; /* 높이 증가 */
+  background-color: #f9f9f9; /* 배경색 */
+  margin-top: 0; /* 페이지 맨 위로 */
+  position: relative; /* 다른 요소와의 겹침 방지 */
+  z-index: 1; /* 다른 요소 위에 위치 */
+}
+
+.mytitle img {
+  width: 100%; /* 크기 증가 */
+  height: auto;
+  border-radius: 8px;
+}
+
+.mytitle img:hover {
+  transform: scale(1.1); /* 호버 시 크기 확대 */
+  transition: transform 0.3s; /* 부드러운 애니메이션 */
+}
+body {
+  background-image: url('https://i.imgur.com/wCN2Of7.png'); /* 배경 이미지 경로 */
+  background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+  background-repeat: no-repeat; /* 이미지 반복 제거 */
+  background-position: center; 
+}
+
+    .login {
+  display: flex;
+  position: relative;
+  top: 250px; /* mytitle 아래로 간격 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+    /* 버튼 그룹 스타일 */
+    .centered-button-group {
+  position: absolute; /* 위치를 고정 */
+  top: 400px; /* 원하는 위치 설정 */
+  left: 50%; /* 가로 중앙 정렬 */
+  transform: translateX(-50%); /* 중앙 정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.centered-button-group button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  width: 200px;
+  text-align: center;
+}
+
+.centered-button-group button:hover {
+  opacity: 0.9;
+}
+
+.btn-outline-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-outline-danger {
+  background-color: #dc3545;
+  color: white;
+}
+.vertical-button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 500px;
+  left: 20px;
+  z-index: 5;
+}
+
+    .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-outline-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .vertical-button-group button {
+      padding: 10px 20px; /* 버튼 내부 여백 */
+      font-size: 16px; /* 글자 크기 */
+      border-radius: 5px; /* 모서리 둥글게 */
+      cursor: pointer;
+      border: none;
+      margin-bottom: 10px; /* 버튼 간격 */
+    }
+
+    .vertical-button-group .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .vertical-button-group button:hover {
+      opacity: 0.9; /* 호버 효과 */
+    }
+
+    /* 추가: 최대화 상태에서 버튼 오른쪽으로 이동 */
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px; /* 제목 아래 여백 */
+}
+
+.form-container {
+  margin-top: 100px; /* 글 작성 폼을 아래로 내림 */
+}
+
+.login {
+  margin-top: 110px; /* 글 작성 폼을 아래로 내림 */
+  left: 1000px;
+}
+.login {
+  display: flex;
+  position: absolute;
+  top: 250px; /* 상단에서 떨어진 거리 */
+  left: 50%; /* 왼쪽 기준으로 50% 이동 */
+  transform: translateX(-50%); /* 요소를 가로축 기준 중앙 정렬 */
+}
+
+/* 화면이 최대화되지 않은 상태에서 적용 (1200px 이하) */
+@media (max-width: 1200px) {
+  .login {
+    top: 300px; /* 화면이 작을 때 아래로 조금 더 내림 */
+  }
+}
+.post-list {
+  margin-top: 30px; /* 게시판 리스트를 아래로 내림 */
+}
+
+.post {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.post-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.post-content {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .form-group input, 
+.form-group textarea {
+  width: 100%; /* 가로 길이를 80%로 설정 */
+  max-width: 800px; /* 최대 길이를 600px로 제한 */
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  box-sizing: border-box; /* padding을 포함한 전체 크기 유지 */
+}
+    .form-group button:hover {
+      background-color: #0056b3;
+    }
+    .post-list {
+      margin-top: 20px;
+    }
+    .post {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .post-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .post-content {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .delete-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      background-color: darkred;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="mytitle">
+    <a href="file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/hello.html" target="_blank">
+    <img src="https://i.imgur.com/4xmbi3A.png" title="source: imgur.com" /></a>
+    </a>
+  </div>
+
+  <!-- 로그인 폼 -->
+  <div class="login">
+    <form>
+      <label for="id">ID:</label>
+      <input type="text" id="id" name="id" />
+      <label for="pw">PW:</label>
+      <input type="password" id="pw" name="pw" />
+      <button>로그인하기</button>
+      <button onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/.vs/public/index.html'">등록</button>
+    </form>
+  </div>
+
+  <!-- 공지사항과 게임소개 버튼 -->
+  <div class="centered-button-group">
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/announcement.html'">공지사항</button>
+    <button type="button" class="btn btn-outline-danger" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game.html'">게임 소개</button>
+  </div>
+
+  <!-- 세로 정렬된 버튼 그룹 -->
+  <div class="vertical-button-group">
+    <button type="button" class="btn btn-outline-primary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/screenshot%20copy%202.html'">스크린샷</button>
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/event.html'">이벤트</button>
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/comunity/painting.html'">팬아트게시판</button>
+  </div>
+
+  <!-- 글 작성 폼 -->
+  <div class="form-container">
+    <div class="form-group">
+      <label for="title">제목</label>
+      <input type="text" id="title" placeholder="제목을 입력하세요" />
+    </div>
+    <div class="form-group">
+      <label for="content">내용</label>
+      <textarea id="content" rows="4" placeholder="내용을 입력하세요"></textarea>
+    </div>
+    <button id="add-post">글 올리기</button>
+  </div>
+
+  <!-- 게시판 -->
+  <div class="post-list" id="post-list">
+    <!-- 게시글이 여기에 추가됩니다 -->
+  </div>
+
+  <script>
+    
+    const titleInput = document.getElementById('title');
+const contentInput = document.getElementById('content');
+const addPostButton = document.getElementById('add-post');
+const postList = document.getElementById('post-list');
+
+// 게시글을 localStorage에 저장
+function savePostsToLocalStorage() {
+  const posts = Array.from(document.querySelectorAll('.post')).map(post => ({
+    title: post.querySelector('.post-title').innerText,
+    content: post.querySelector('.post-content').innerText
+  }));
+  localStorage.setItem('posts', JSON.stringify(posts));
+}
+
+// 게시글을 화면에 렌더링
+function loadPostsFromLocalStorage() {
+  const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+  savedPosts.forEach(post => {
+    createPostElement(post.title, post.content);
+  });
+}
+
+// 게시글 요소 생성 및 추가
+function createPostElement(title, content) {
+  const postDiv = document.createElement('div');
+  postDiv.className = 'post';
+  postDiv.innerHTML = `
+    <div class="post-title">${title}</div>
+    <div class="post-content">${content}</div>
+    <button class="delete-btn">삭제</button>
+  `;
+
+  // 삭제 버튼 이벤트 추가
+  postDiv.querySelector('.delete-btn').addEventListener('click', () => {
+    postList.removeChild(postDiv);
+    savePostsToLocalStorage(); // 게시글 삭제 후 localStorage 업데이트
+  });
+
+  // 게시글 목록에 추가
+  postList.appendChild(postDiv);
+}
+
+// 글 올리기 버튼 이벤트
+addPostButton.addEventListener('click', () => {
+  const title = titleInput.value.trim();
+  const content = contentInput.value.trim();
+
+  if (!title || !content) {
+    alert('제목과 내용을 모두 입력하세요.');
+    return;
+  }
+
+  // 게시글 생성 및 저장
+  createPostElement(title, content);
+  savePostsToLocalStorage(); // localStorage에 저장
+
+  // 입력 필드 초기화
+  titleInput.value = '';
+  contentInput.value = '';
+});
+
+// 페이지 로드 시 게시글 불러오기
+document.addEventListener('DOMContentLoaded', loadPostsFromLocalStorage);
+      // 게시글 생성
+      const postDiv = document.createElement('div');
+      postDiv.className = 'post';
+      postDiv.innerHTML = `
+        <div class="post-title">${title}</div>
+        <div class="post-content">${content}</div>
+        <button class="delete-btn">삭제</button>
+      `;
+
+      const centeredButtonGroup = document.querySelector('.centered-button-group');
+
+function adjustButtonPosition() {
+  const windowHeight = window.innerHeight; // 현재 창 높이
+  const isMaximized = window.innerWidth === screen.width && window.innerHeight === screen.height;
+
+  if (!isMaximized) {
+    // 최대화가 아닐 때: 위로 이동
+    centeredButtonGroup.style.top = `300px`; // 원하는 위치로 조정 (위로 올림)
+  } else {
+    // 최대화 상태: 원래 위치로 복귀
+    centeredButtonGroup.style.top = `300px`;
+  }
+}
+
+// 초기 실행
+adjustButtonPosition();
+
+// 창 크기 변경 이벤트에 반응
+window.addEventListener('resize', adjustButtonPosition);
+
+
+
+// 초기 실행
+adjustButtonPosition();
+
+// 창 크기 변경 이벤트에 한 번만 이벤트 리스너 등록
+window.addEventListener('resize', adjustButtonPosition);
+
+// 초기 실행
+adjustButtonPosition();
+
+// 창 크기 변경 이벤트에 반응
+window.addEventListener('resize', adjustButtonPosition);
+
+// 초기 실행
+adjustButtonPosition();
+
+// 창 크기 변경 이벤트에 반응
+window.addEventListener('resize', adjustButtonPosition);
+
+// 초기 실행 및 이벤트 설정
+window.addEventListener('resize', adjustButtonPosition);
+adjustButtonPosition();
+
+// 초기 실행
+adjustButtonPosition();
+
+// 창 크기 변경 이벤트에 반응
+window.addEventListener('resize', adjustButtonPosition);
+// 초기 실행
+adjustButtonPosition();
+
+// 브라우저 창 크기 조정 이벤트에 반응
+window.addEventListener('resize', adjustButtonPosition);
+  </script>
+</body>
+</html>
