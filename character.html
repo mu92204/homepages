@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>캐릭터
+
+  </title>
+  <style>
+    /* 전체 요소 초기화 */
+    body {
+  background-image: url('https://i.imgur.com/wCN2Of7.png'); /* 배경 이미지 경로 */
+  background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+  background-repeat: no-repeat; /* 이미지 반복 제거 */
+  background-position: center; 
+}
+    .wrap {
+      width: 1200px;
+      margin: 20px auto;
+    }
+    .mytitle {
+  text-align: center; /* 가운데 정렬 */
+  margin: 20px; /* 여백 추가 */
+}
+
+    .yellow_outline_btn {
+      background-color: white;
+      width: 80vw;
+      height: 1vh;
+    }
+/* 전체 요소 초기화 */
+       * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .image-container-wrapper {
+      display: flex; /* 가로 정렬 */
+      justify-content: center;
+      align-items: center;
+      gap: 50px; /* 이미지 간 간격 */
+      margin-top: 50px;
+    }
+
+    .image-container1 img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* 이미지 컨테이너 2 (작은 이미지) */
+    .image-container1 {
+  position: relative; /* 상대 위치 */
+  left: 420px; /* 왼쪽으로 20px 이동 */
+  top: 10px; /* 위로 10px 이동 */
+  transform: translate(0, 0); /* 추가 미세 조정 */
+}
+@media (max-width: 1600px) {
+  .image-container1 {
+    position: absolute; /* 절대 위치 설정 */
+    width: 60%;
+    left:50%; /* 왼쪽에서 50% 지점 */
+    top: 120%; /* 위에서 50% 지점 */
+    transform: translate(-30%, -50%); /* 정중앙으로 이동 */
+    z-index: 10; /* 다른 요소 위에 표시 */
+  }
+}
+
+@media (min-width: 1600px) {
+  .image-container1 {
+    position: absolute; /* 절대 위치 설정 */
+    left:50%; /* 왼쪽에서 50% 지점 */
+    top: 50%; /* 위에서 50% 지점 */
+    transform: translate(-50%, -50%); /* 정중앙으로 이동 */
+    z-index: 10; /* 다른 요소 위에 표시 */
+  }
+}
+/* .image-container2에 대한 정밀 이동 */
+.image-container2 {
+  position: relative; /* 상대 위치 */
+  left: 40px; /* 오른쪽으로 20px 이동 */
+  top: -10px; /* 아래로 10px 이동 */
+  transform: translate(0, 0); /* 추가 미세 조정 */
+}
+@media (max-width: 1599px) {
+  .image-container2 {
+    position: absolute; /* 절대 위치 설정 */
+    left: 0; /* 왼쪽 끝에 붙임 */
+    top: 50%; /* 세로 중앙 정렬 */
+    transform: translateY(-0%); /* 세로 중앙 이동 */
+    z-index: 10; /* 다른 요소 위에 표시 */
+  }
+}
+
+  @media (min-width: 1600px) {
+  .image-container2 {
+    position: absolute; /* 절대 위치 */
+    left: 0; /* 화면의 왼쪽 끝에 붙임 */
+    top: 50%; /* 세로 중앙 정렬 */
+    transform: translateY(-50%); /* 정확히 세로 중앙으로 이동 */
+    z-index: 10; /* 다른 요소 위에 표시 */
+  }
+}
+/* 이미지 자체에 대한 추가 이동 */
+.image-container1 img {
+  transform: translate(-10px, 505px); /* 가로 -10px, 세로 5px 이동 */
+}
+
+.image-container2 img {
+  transform: translate(10px, 705px); /* 가로 10px, 세로 -5px 이동 */
+}
+
+/* 이미지 스타일 */
+.image-container1 img,
+.image-container2 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* 화면이 최대화 상태가 아닐 때 (1600px 이하) */
+@media (max-width: 1599px) {
+  .image-container1 {
+    order: 1; /* 두 번째로 표시 */
+  }
+
+  .image-container2 {
+    order: 2; /* 첫 번째로 표시 */
+  }
+}
+
+    /* 버튼 컨테이너 */
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .button-container {
+    z-index: 1000;
+    position: relative;
+}
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    /* 버튼 색상 */
+    .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-outline-secondary {
+      background-color: #6d767d;
+      color: white;
+    }
+
+    .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+  /* 이미지 컨테이너 래퍼 스타일 수정 */
+/* 화면이 최대화 상태일 때 좌우 위치 바꾸기 */
+@media (min-width: 1600px) {
+  .image-container-wrapper {
+    display: flex; /* 가로 정렬 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    width: 130%;
+    gap: 50px; /* 이미지 간 간격 설정 */
+    margin-top: 250px; /* 전체 위 여백 */
+  }
+
+/* 이미지 컨테이너 래퍼 스타일 */
+
+/* 이미지 스타일 */
+}
+.vertical-button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      z-index: 5;
+    }
+
+    .vertical-button-group button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      margin-bottom: 10px;
+    }
+    
+    .vertical-button-group .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-secondary {
+      background-color: #6d767d;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    .button-container .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .button-containerup .btn-outline-secondary {
+      background-color: #6d767d;
+      color: white;
+    }
+
+    .button-container .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .vertical-button-group {
+    z-index: 1000; /* 높은 값을 지정 */
+}
+.vertical-button-group {
+    position: relative; /* 필요에 따라 absolute로 변경 */
+}
+  </style>
+</head>
+<body>
+  <div class="mytitle">
+    <a href="file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/hello.html" target="_blank">
+      <img src="https://i.imgur.com/4xmbi3A.png" title="source: imgur.com" />
+    </a>
+  </div>
+  <div style="position: relative; z-index: 1000; margin-top: 20px;">
+    <p>이메일: <input type="text" id="email" /></p>
+    <p>패스워드: <input type="text" id="password" /></p>
+    <button onClick="handleLogin()">로그인하기</button>
+    <button onClick="handleRegister()">등록</button>
+  </div>
+
+
+    <!-- 버튼 컨테이너 -->
+    <div class="button-container">
+      <button type="button" class="btn-outline-primary" 
+              onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game.html'">게임소개</button>
+      <button type="button" class="btn-outline-secondary" 
+              onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/announcement.html'">공지사항</button>
+      <button type="button" class="btn-outline-danger" 
+              onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/communication.html'">커뮤니티</button>
+    </div>
+    <div class="vertical-button-group">
+      <button type="button" class="btn btn-outline-primary" 
+              onClick="console.log('로봇 소개 클릭됨'); location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/robot.html';">
+        로봇 소개
+      </button>
+      <button type="button" class="btn btn-outline-primary" 
+              onClick="console.log('게임 소개 클릭됨'); location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game.html';">
+        게임 소개
+      </button>
+      <button type="button" class="btn btn-outline-secondary" 
+              onClick="console.log('타워 소개 클릭됨'); location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/tower.html';">
+        타워 소개
+      </button>
+      <button type="button" class="btn btn-outline-danger" 
+              onClick="console.log('스킬카드 소개 클릭됨'); location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/skillcard.html';">
+        스킬카드 소개
+      </button>
+    </div>
+    <!-- 이미지 컨테이너 -->
+    <div class="image-container-wrapper">
+      <div class="image-container1">
+        <img src="https://i.imgur.com/8Qb2bSw.png" alt="큰 이미지">
+      </div>
+      
+      <div class="image-container2">
+        <img src="https://i.imgur.com/M8BGFup.png" alt="작은 이미지">
+      </div>
+    </div>
+</body>
+</html>

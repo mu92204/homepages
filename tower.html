@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타워</title>
+  <style>
+ 
+ body {
+  background-image: url('https://i.imgur.com/wCN2Of7.png'); /* 배경 이미지 경로 */
+  background-size: cover; /* 이미지가 화면을 꽉 채우도록 설정 */
+  background-repeat: no-repeat; /* 이미지 반복 제거 */
+  background-position: center; 
+}
+ .mytitle {
+      display: flex; /* Flexbox 활성화 */
+      justify-content: center; /* 가로축 중앙 정렬 */
+      align-items: center; /* 세로축 중앙 정렬 */
+      height: 400px; /* 컨테이너 높이 */
+      background-color: transparent; /* 배경색 없음 */
+      margin-top: 0px; /* 페이지 맨 위로 붙이기 */
+    }
+
+
+    .button-group {
+      text-align: center; /* 버튼을 중앙 정렬 */
+      margin-top: 20px; /* 이미지와 버튼 사이 간격 */
+    }
+
+    .button-group button {
+      padding: 15px 30px; /* 버튼 내부 여백 */
+      font-size: 18px; /* 버튼 글자 크기 */
+      margin: 10px; /* 버튼 사이 간격 */
+      border-radius: 5px; /* 버튼 모서리 둥글게 */
+      cursor: pointer;
+      border: none; /* 테두리 제거 */
+    }
+
+    .btn-outline-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    
+    main-image-container {
+    text-align: center; /* 이미지를 가운데 정렬 */
+    margin-top: 20px; /* 상단 여백 */
+    width: 70%; /* 컨테이너 너비를 전체로 설정 */
+    height: 60px; /* 원하는 높이로 설정 */
+    position: relative; /* 위치 조정 가능하도록 설정 */
+}
+
+.main-image-container img {
+    width: 60%; /* 이미지 너비를 컨테이너에 맞게 설정 */
+    height: 60%; /* 이미지 높이를 컨테이너에 맞게 설정 */
+    object-fit: contain; /* 이미지 비율 유지하면서 전체 표시 */
+    border-radius: 8px; /* 모서리를 둥글게 */
+}
+    .main-image-container {
+  text-align: right; /* 이미지를 오른쪽 정렬 */
+  margin-top: -800px; /* 상단과 간격 추가 */
+  position: relative; /* 위치 조정 가능하도록 설정 */
+  transform: translateX(100px); /* 50px 오른쪽으로 이동 */
+  width: 2100px;
+}
+@media (max-width: 768px) {
+    .image-container {
+        height: 300px; /* 작은 화면에서는 높이를 줄임 */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-container {
+        height: 200px; /* 더 작은 화면에서는 높이를 더 줄임 */
+    }
+}
+    img {
+      max-width: 100%; /* 이미지 크기를 반응형으로 조정 */
+      height: auto;
+    }
+
+    .text-container {
+      text-align: center; /* 텍스트 중앙 정렬 */
+      margin-top: 20px;
+    }
+
+    .clickable {
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    
+    .vertical-button-group {
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+  position: absolute; /* 절대 위치 지정 */
+  top: 800px; /* 아래로 내리기 */
+  left: 20px; /* 화면 왼쪽에서 떨어진 거리 */
+  z-index: 5; /* 다른 요소 위에 표시 */
+}
+
+@media (max-width: 1600px) {
+  .vertical-button-group {
+    top: 750px; /* 기존 위치에서 아래로 이동 */
+  }
+}
+
+/* 화면이 더 작아질 경우 (1200px 이하) 추가 조정 */
+@media (max-width: 1200px) {
+  .vertical-button-group {
+    top: 500px; /* 더 아래로 이동 */
+  }
+}
+    .vertical-button-group button {
+      padding: 10px 20px; /* 버튼 내부 여백 */
+      font-size: 16px; /* 글자 크기 */
+      border-radius: 5px; /* 모서리 둥글게 */
+      cursor: pointer;
+      border: none;
+      margin-bottom: 10px; /* 버튼 간격 */
+    }
+
+    .vertical-button-group .btn-outline-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .vertical-button-group .btn-outline-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+    .image-wrapper {
+    display: flex; /* Flexbox 활성화 */
+    justify-content: left; /* 가로축 중앙 정렬 */
+    align-items: center; /* 세로축 중앙 정렬 */
+    margin-top: 20px; /* 상단 여백 */
+    height: auto; /* 컨테이너 높이 자동 설정 */
+  }
+  .footer-image {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .footer-image img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    </style>
+</head>
+<body>
+  <div class="wrap" style="text-align: center;">
+    <div class="mytitle">
+      <a href="file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/hello.html">
+      <img src="https://i.imgur.com/4xmbi3A.png" title="source: imgur.com" /></a>
+      </a>
+    </div>
+  </div>
+ 
+  <!-- 버튼 그룹을 그림 아래로 이동 -->
+  <div class="button-group">
+    <button type="button" class="btn btn-outline-primary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game.html'">게임소개</button>
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/announcement.html'">공지사항</button>
+  </div>
+
+  <h1>타워카드 소개</h1>
+
+  <div>
+    <!-- 로그인 및 등록 버튼 -->
+    <p>이메일: <input type="text" /></p>
+    <p>패스워드: <input type="text" /></p>
+    <button>로그인하기</button>
+    <button onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80/.vs/public/index.html'">등록</button>
+</div>
+<div class="vertical-button-group">
+  <button type="button" class="btn btn-outline-primary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/character.html'">캐릭터 소개</button>
+  <button type="button" class="btn btn-outline-secondary" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/skillcard.html'">스킬카드 소개</button>
+  <button type="button" class="btn btn-outline-danger" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game.html'">게임 소개</button>
+  <button type="button" class="btn btn-outline-danger" onClick="location.href='file:///C:/Users/PC/Desktop/coding/hwatitng/homepage/.vs/public/game/robot.html'">로봇 소개</button>
+</div>
+<div class="image-wrapper">
+  <div class="image-container-left">
+    <img src="https://i.imgur.com/CTUXOni.png" alt="왼쪽 이미지">
+  </div>
+</div>
+
+<div class="main-image-container">
+  <img src="https://i.imgur.com/csxsln0.png" title="source: imgur.com" />
+</div>
+</body>
+</html>
+
+<script>
+  document.getElementById("loginButton").addEventListener("click", function() {
+      alert("로그인 버튼이 눌렸습니다!");
+    });
+
+    document.getElementById("registerButton").addEventListener("click", function() {
+      window.location.href = 'index.html';
+    });
+</script>
+</html>
+
